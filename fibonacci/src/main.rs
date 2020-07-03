@@ -1,22 +1,13 @@
 fn main() {
-    let res = gen_fib(10);
+    let res = gen_fib(100);
     println!("{}", res);
 }
 
 fn gen_fib(n: i32) -> i32 {
-    if n <= 2 {
-        return 1;
-    }
-    else {
-        let mut prev = 1;
-        let mut curr = 1;
-        let mut sum = 0;
-        for i in 2..n {
-            sum = curr + prev;
-            prev = curr;
-            curr = sum;
-        }
-        return sum;
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => gen_fib(n-1) + gen_fib(n-2)
     }
 }
 
